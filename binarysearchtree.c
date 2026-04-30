@@ -48,9 +48,14 @@ nn->data=x[k];nn->ll=NULL;nn->rl=NULL;
 //3-> deleting a node with right child only
 //4-> deleting a node with two childs 
 //converting into a perfect binary tree
-void preorder(){
+void preorder(struct node*c){
+if(c==NULL){
+return;
+}
+printf("%d\n",c->data);
+preorder(c->ll);
 
-printf("%d",mr->data);temp=mr;
+preorder(c->rl);
 
 }
 
