@@ -42,7 +42,7 @@ nn->data=x[k];nn->ll=NULL;nn->rl=NULL;
 
 // traversal :
 //1-> preoder, 2-> inorder, 3->postorder
-//insert-> all i need to do is call bst , and input k value as d+1
+//insert-> call bst , and send it as a argument
 //delete->1.deleting a leaf 
 // 2-> deleting a node with left child only
 //3-> deleting a node with right child only
