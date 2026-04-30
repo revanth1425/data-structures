@@ -54,12 +54,23 @@ printf("%d",mr->data);temp=mr;
 
 }
 
-void inorder(){
-    
+void inorder(struct node*c){
+if(c==NULL){
+return;
+}
+inorder(c->ll);
+printf("%d\n",c->data);
+inorder(c->rl);
+
 }
 
-void postrder(){
-    
+void postorder(struct node*c){
+if(c==NULL){
+return;}
+postorder(c->ll);
+
+postorder(c->rl);
+printf("%d\n",c->data);
 }
 
 
@@ -73,9 +84,14 @@ printf("enter the array elemrnts\n");
 for(int i=0;i<d;i++){
     scanf("%d",&a[i]);
 }
-w=a;for(int i=0; i<d;i++)
-bst(w,i);
-
+w=a;for(int i=0; i<d;i++){
+bst(w,i);}
+printf("preorder:\n");
+preorder(t);t=mr;
+printf("inorder:\n");
+inorder(t);t=mr;
+printf("postorder:\n");
+postorder(t);
 
 
 
