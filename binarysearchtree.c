@@ -5,7 +5,7 @@ struct node
 {int data;
  struct node *ll; 
 struct node *rl ; 
-}*mr=NULL,*nn,*temp,*t;
+}*mr=NULL,*nn,*temp,*t,*bb;
 
 
 
@@ -41,11 +41,11 @@ nn->data=x[k];nn->ll=NULL;nn->rl=NULL;
 }
 
 // traversal :
-//1-> preoder, 2-> inorder, 3->postorder
-//insert-> call bst , and send it as a argument
-//delete->1.deleting a leaf 
-// 2-> deleting a node with left child only
-//3-> deleting a node with right child only
+//1-> preoder, 2-> inorder, 3->postorder(COMPLETED)
+//insert-> call bst , and send it as a argument(completed)
+//delete->1.deleting a leaf (completed)
+// 2-> deleting a node with left child only(completed)
+//3-> deleting a node with right child only(completed)
 //4-> deleting a node with two childs 
 //converting into a perfect binary tree
 void preorder(struct node*c){
@@ -79,6 +79,94 @@ printf("%d\n",c->data);
 }
 
 
+void insert(){
+    int y[2];int *j;
+    int h;y[0]=0;
+    printf("enter the value to be inserted:\n");
+    scanf("%d",&h);
+    y[1]=h;j=y;
+    bst(j,1);
+}
+
+void delete(){int q;
+    printf("value to be deleted:\n");
+    scanf("%d",&q);
+   if(mr==NULL){ printf(" binary tree is empty");
+return;
+}temp=mr;
+
+while(1){
+if(temp->data>q){
+    if(temp->ll==NULL){printf("element not found in bst\n");
+        return;
+    }
+    else if(temp->ll->data==q){
+       break;
+    }
+    else{
+        temp=temp->ll;
+    }
+}  
+ else if(temp->data<q){
+    if(temp->rl==NULL){printf("element not found in bst\n");
+       return;
+    }
+
+    else if(temp->rl->data==q){
+       break;
+    }
+    else{
+        temp=temp->rl;
+    }
+}  
+
+} 
+if(temp->ll!=NULL && (temp->ll->ll==NULL && temp->ll->rl==NULL) && temp->ll->data==q)
+{printf("deleted a leaf in bst of value %d",q);
+t=temp->ll;free(t);
+temp->ll=NULL;
+}
+else if(temp->rl!=NULL && (temp->rl->rl==NULL && temp->rl->ll==NULL) && temp->rl->data==q){
+printf("deleted a leaf in bst of value %d",q);
+t=temp->rl;free(t);
+temp->rl=NULL;
+}
+else if(temp->ll!=NULL && (temp->ll->ll==NULL ) && (temp->ll->rl!=NULL )&& temp->ll->data==q){
+printf("deleted a node in bst with only a right child of value %d",q);
+bb=temp->ll->rl;
+t=temp->ll;free(t);
+temp->ll=bb;
+}
+else if(temp->ll!=NULL && (temp->ll->rl==NULL ) && (temp->ll->ll!=NULL )&& temp->ll->data==q){
+printf("deleted a node in bst with only a left child of value %d",q);
+bb=temp->ll->ll;
+t=temp->ll;free(t);
+temp->ll=bb;
+}
+else if(temp->rl!=NULL && (temp->rl->rl==NULL ) && (temp->rl->ll!=NULL )&& temp->rl->data==q){
+printf("deleted a node in bst with only a left  child of value %d",q);
+bb=temp->rl->ll;
+t=temp->rl;free(t);
+temp->rl=bb;
+}
+else if(temp->rl!=NULL && (temp->rl->ll==NULL ) && (temp->rl->rl!=NULL )&& temp->rl->data==q){
+printf("deleted a node in bst with only a right child of value %d",q);
+bb=temp->rl->rl;
+t=temp->rl;free(t);
+temp->rl=bb;
+}
+else if(temp->ll!=NULL && (temp->ll->ll!=NULL && temp->ll->rl!=NULL) && temp->ll->data==q){
+printf("deleted a node in bst of value %d with two childs, ",q);
+bb=temp->ll->rl;
+bb->ll=
+}
+
+}
+
+
+
+
+
 
 
 
@@ -90,7 +178,8 @@ for(int i=0;i<d;i++){
     scanf("%d",&a[i]);
 }
 w=a;for(int i=0; i<d;i++){
-bst(w,i);}t=mr;
+bst(w,i);} insert();
+t=mr;
 printf("preorder:\n");
 preorder(t);
 printf("inorder:\n");
@@ -101,3 +190,4 @@ postorder(t);
 
 
 return 0;}
+
