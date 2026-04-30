@@ -49,7 +49,7 @@ nn->data=x[k];nn->ll=NULL;nn->rl=NULL;
 //4-> deleting a node with two childs 
 //converting into a perfect binary tree
 void preorder(){
-// go all the way to the left down and use rLR, but once i all the way down how am i gonna come up 
+
 printf("%d",mr->data);temp=mr;
 
 }
