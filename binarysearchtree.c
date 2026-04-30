@@ -90,11 +90,11 @@ for(int i=0;i<d;i++){
     scanf("%d",&a[i]);
 }
 w=a;for(int i=0; i<d;i++){
-bst(w,i);}
+bst(w,i);}t=mr;
 printf("preorder:\n");
-preorder(t);t=mr;
+preorder(t);
 printf("inorder:\n");
-inorder(t);t=mr;
+inorder(t);
 printf("postorder:\n");
 postorder(t);
 
