@@ -47,8 +47,8 @@ return nn;
 //delete->1.deleting a leaf (completed)
 // 2-> deleting a node with left child only(completed)
 //3-> deleting a node with right child only(completed)
-//4-> deleting a node with two childs 
-//converting into a perfect binary tree
+//4-> deleting a node with two childs (completed)
+//5->converting into a perfect binary tree
 void preorder(struct node*c){
 if(c==NULL){
 return;
