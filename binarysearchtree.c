@@ -5,15 +5,14 @@ struct node
 {int data;
  struct node *ll; 
 struct node *rl ; 
-}*mr=NULL,*nn,*temp,*t,*bb;
+}*mr=NULL,*nn,*temp,*t,*bb,*link,*zoro=NULL;
 
 
-
-void bst(int *x,int k){
+struct node *bst(int *x,int k){
 if(mr==NULL){
 nn=(struct node*)malloc(sizeof(struct node));
 nn->data=x[k];nn->ll=NULL;nn->rl=NULL;
-mr=nn;return;
+mr=nn;return nn;
 }temp=mr;
 nn=(struct node*)malloc(sizeof(struct node));
 while(1){
@@ -33,11 +32,13 @@ if(temp->data>x[k]){
         temp=temp->rl;
     }
 }  
+else{free(nn);
+   return;}
 
 }
 
 nn->data=x[k];nn->ll=NULL;nn->rl=NULL;
-
+return nn;
 }
 
 // traversal :
@@ -93,7 +94,12 @@ void delete(){int q;
     scanf("%d",&q);
    if(mr==NULL){ printf(" binary tree is empty");
 return;
-}temp=mr;
+}
+else if( q==mr->data && mr->ll==NULL && mr->rl==NULL){
+    t=mr;
+    free(t);mr=NULL;return;
+}
+temp=mr;
 
 while(1){
 if(temp->data>q){
@@ -155,16 +161,57 @@ bb=temp->rl->rl;
 t=temp->rl;free(t);
 temp->rl=bb;
 }
-else if(temp->ll!=NULL && (temp->ll->ll!=NULL && temp->ll->rl!=NULL) && temp->ll->data==q){
+else if(temp->ll!=NULL && (temp->ll->ll!=NULL && temp->ll->rl!=NULL) && temp->ll->data==q){int k,*p,a[2];a[0]=0;
 printf("deleted a node in bst of value %d with two childs, ",q);
 bb=temp->ll->rl;
-bb->ll=
-}
+zoro=bb->ll;
+if(zoro!=NULL){
+k=bb->ll->data;a[1]=k;p=a;
+bb->ll=NULL;
+bb->ll=temp->ll->ll;
+link=bst(p,1);
+
+link->ll=zoro->ll;
+
+link->rl=zoro->rl;
 
 }
 
+else if(zoro==NULL){bb->ll=temp->ll->ll;}
+free(zoro);
+t=temp->ll;
+
+free(t);temp->ll=bb;
+
+}
+else if(temp->rl!=NULL && (temp->rl->ll!=NULL && temp->rl->rl!=NULL) && temp->rl->data==q){int k,*p,a[2];a[0]=0;
+
+printf("deleted a node in bst of value %d with two childs, ",q);
+
+bb=temp->rl->rl;
+zoro=bb->ll;
+if(zoro!=NULL){
+k=bb->ll->data;a[1]=k;p=a;
+bb->ll=NULL;
+bb->ll=temp->rl->ll;
+link=bst(p,1);
+
+link->ll=zoro->ll;
+
+link->rl=zoro->rl;
+
+}
+
+else if(zoro==NULL){bb->ll=temp->rl->ll;}
+free(zoro);
+t=temp->rl;
+
+free(t);temp->rl=bb;
 
 
+}
+
+}
 
 
 
@@ -186,7 +233,7 @@ printf("inorder:\n");
 inorder(t);
 printf("postorder:\n");
 postorder(t);
-
+delete();
 
 
 return 0;}
