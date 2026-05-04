@@ -4,8 +4,8 @@
 struct node
 {int data;
  int index;
- struct node *ll; 
-struct node *rl ; 
+ struct node *ll;
+struct node *rl ;
 }
 
 
@@ -24,7 +24,7 @@ if(temp->data>k){
     else{
         temp=temp->ll;
     }
-}  
+}
  else if(temp->data<k){
     if(temp->rl==NULL){temp->rl=nn;
         break;
@@ -32,7 +32,7 @@ if(temp->data>k){
     else{
         temp=temp->rl;
     }
-}  
+}
 else{free(nn);
    return;}
 
@@ -100,14 +100,14 @@ printf("%d\n",c->data);
 
 int main(){int d,
 printf("enter the array size:\n");
-scanf("%d",&d);int a[d]; 
+scanf("%d",&d);int a[d];
 printf("enter the array elemrnts\n");
 for(int i=0;i<d;i++){
     scanf("%d",&a[i]);
 }
 for(int i=0; i<d;i++){
-bst(a[i])}; 
-("printfenter the value to be inserted:\n");
+bst(a[i])};
+printf("enter the value to be inserted:\n");
 int h;
 scanf("%d",&h);
 insert(h);
