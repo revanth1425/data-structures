@@ -3,8 +3,8 @@
 
 struct node
 {int data;
- struct node *ll; 
-struct node *rl ; 
+ struct node *ll;
+struct node *rl ;
 }*mr=NULL,*nn,*temp,*t,*bb,*link,*zoro=NULL;
 
 
@@ -23,7 +23,7 @@ if(temp->data>x[k]){
     else{
         temp=temp->ll;
     }
-}  
+}
  else if(temp->data<x[k]){
     if(temp->rl==NULL){temp->rl=nn;
         break;
@@ -31,9 +31,9 @@ if(temp->data>x[k]){
     else{
         temp=temp->rl;
     }
-}  
+}
 else{free(nn);
-   return;}
+   return NULL;}
 
 }
 
@@ -112,7 +112,7 @@ if(temp->data>q){
     else{
         temp=temp->ll;
     }
-}  
+}
  else if(temp->data<q){
     if(temp->rl==NULL){printf("element not found in bst\n");
        return;
@@ -124,9 +124,9 @@ if(temp->data>q){
     else{
         temp=temp->rl;
     }
-}  
+}
 
-} 
+}
 if(temp->ll!=NULL && (temp->ll->ll==NULL && temp->ll->rl==NULL) && temp->ll->data==q)
 {printf("deleted a leaf in bst of value %d",q);
 t=temp->ll;free(t);
@@ -219,7 +219,7 @@ free(t);temp->rl=bb;
 
 int main(){int *p,*w;int d; p=&d;
 printf("enter the array size:\n");
-scanf("%d",&d);int a[*p]; 
+scanf("%d",&d);int a[*p];
 printf("enter the array elemrnts\n");
 for(int i=0;i<d;i++){
     scanf("%d",&a[i]);
@@ -237,4 +237,3 @@ delete();
 
 
 return 0;}
-
