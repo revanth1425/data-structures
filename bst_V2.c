@@ -171,7 +171,7 @@ else if(temp->rl!=NULL && (temp->rl->ll!=NULL && temp->rl->rl!=NULL) && temp->rl
     printf("deleted a node in bst with two children of value %d",kill);
     zoro=temp->rl->rl;
     while(zoro->ll!=NULL){zoro=zoro->ll;}
-    copy=zoro->data;tempcopy=temp->ll;
+    copy=zoro->data;tempcopy=temp->rl;
     delete(zoro->data);
     tempcopy->data=copy;
 
