@@ -159,6 +159,7 @@ t=temp->rl;free(t);
 temp->rl=bb;
 }
 else if(temp->ll!=NULL && (temp->ll->ll!=NULL && temp->ll->rl!=NULL) && temp->ll->data==kill){int copy;
+    printf("deleted a node in bst with two children of value %d",kill);
     zoro=temp->ll->rl;
     while(zoro->ll!=NULL){zoro=zoro->ll;}
     copy=zoro->data;tempcopy=temp->ll;
@@ -166,7 +167,15 @@ else if(temp->ll!=NULL && (temp->ll->ll!=NULL && temp->ll->rl!=NULL) && temp->ll
     tempcopy->data=copy;
 
 }
+else if(temp->rl!=NULL && (temp->rl->ll!=NULL && temp->rl->rl!=NULL) && temp->rl->data==kill){int copy;
+    printf("deleted a node in bst with two children of value %d",kill);
+    zoro=temp->rl->rl;
+    while(zoro->ll!=NULL){zoro=zoro->ll;}
+    copy=zoro->data;tempcopy=temp->ll;
+    delete(zoro->data);
+    tempcopy->data=copy;
 
+}
 
 }
 
