@@ -98,9 +98,9 @@ printf("%d\n",c->data);
 
 
 
-int main(){int d,*p;d=&p;
+int main(){int d,
 printf("enter the array size:\n");
-scanf("%d",&d);int a[*p]; 
+scanf("%d",&d);int a[d]; 
 printf("enter the array elemrnts\n");
 for(int i=0;i<d;i++){
     scanf("%d",&a[i]);
