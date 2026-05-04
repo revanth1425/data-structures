@@ -6,7 +6,7 @@ struct node
  int index;
  struct node *ll;
 struct node *rl ;
-}*nn,*mr,*temp,*zoro,*t,*bb;
+}*nn,*mr,*temp,*zoro,*t,*bb,*tempcopy;
 
 
 struct node *bst(int k){
@@ -161,9 +161,9 @@ temp->rl=bb;
 else if(temp->ll!=NULL && (temp->ll->ll!=NULL && temp->ll->rl!=NULL) && temp->ll->data==kill){int copy;
     zoro=temp->ll->rl;
     while(zoro->ll!=NULL){zoro=zoro->ll;}
-    copy=zoro->data;
+    copy=zoro->data;tempcopy=temp->ll;
     delete(zoro->data);
-    temp->ll->data=copy;
+    tempcopy->data=copy;
 
 }
 
