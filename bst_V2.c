@@ -161,7 +161,8 @@ temp->rl=bb;
 else if(temp->ll!=NULL && (temp->ll->ll!=NULL && temp->ll->rl!=NULL) && temp->ll->data==kill){int copy;
     zoro=temp->ll->rl;
     while(zoro->ll!=NULL){zoro=zoro->ll;}
-    delete(zoro->data);copy=zoro->data;
+    copy=zoro->data;
+    delete(zoro->data);
     temp->ll->data=copy;
 
 }
