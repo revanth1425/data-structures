@@ -160,9 +160,11 @@ temp->rl=bb;
 }
 else if(temp->ll!=NULL && (temp->ll->ll!=NULL && temp->ll->rl!=NULL) && temp->ll->data==kill){
     zoro=temp->ll->rl;
-    while(zoro->ll!=NULL){zoro=zoro->ll;}
+    while(zoro->ll->ll!=NULL){zoro=zoro->ll;}
     temp->ll->data=zoro->ll->data;
-
+  t=zoro->ll;
+  free(t);
+  zoro->ll=NULL;
 }
 
 
