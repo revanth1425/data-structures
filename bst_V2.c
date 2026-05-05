@@ -3,7 +3,7 @@
 
 struct node
 {int data;
- int index;
+ int level;
  struct node *ll;
 struct node *rl ;
 }*nn,*mr,*temp,*zoro,*t,*bb,*tempcopy;
@@ -41,6 +41,25 @@ else{free(nn);
 nn->data=k;nn->ll=NULL;nn->rl=NULL;
 return nn;
 }
+
+int height(struct node *asta){
+    if(asta==NULL)return 0;
+    else return asta->level;
+}
+void avl(struct node *marker){int diff;
+    if(marker==NULL){
+    return;
+    }
+   avl(marker->ll);
+    diff=height(marker->ll) - height(marker->rl);
+    if(diff>1 || diff<-1){
+      if()
+    }
+ avl(marker->rl);
+}
+
+
+
 
 
 void insert(int k){
@@ -176,7 +195,7 @@ else if(temp->rl!=NULL && (temp->rl->ll!=NULL && temp->rl->rl!=NULL) && temp->rl
     tempcopy->data=copy;
 
 }
-
+avl();
 }
 
 
